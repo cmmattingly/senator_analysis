@@ -4,11 +4,11 @@ The senator_analysis.py script is used to perform analysis on the scraped docume
 
 # Description
 
-First the script pulls the data from das-lab.org and performs preprocessing of the data. Removing stopwords, white spaces, numbers, and punctuation.
+First the script pulls the data from das-lab.org docs endpoint and performs preprocessing of the data. Removing stopwords, white spaces, numbers, and punctuation.
 
-The script then tokenizes the words creating the texts, creates an id2word dictionary for the lda model, and then converts the id2words into a bag-of-words format for the model.
+The script then tokenizes the words creating the texts, converts tokens into id2word dictionary, and then uses the id2word dictionary into a bag-of-words format for the model. These 3 objects are used when running the mallet wrapper.
 
-We then compute the coherence values for the models with different number of topics within a range. Uses the highest coherence value model that has a reasonable number of topics.
+We then compute the coherence values for the models with different number of topics within a range, and use the highest coherence value model that has a reasonable number of topics.
 
 The script then posts the topics from the new LDA model to the database, and pulls the new topic_ids that have been created for the pushed topics. Then creates the doc_top matrix with the new model's topics.
 
@@ -22,9 +22,9 @@ This json payload is then posted to the das-lab.org doctopics endpoint. Where it
 
 Running the script does everything for you.
 
-'''
+```console
 python3 sen_analysis.py
-'''
+```
 
 # Notebook
 
